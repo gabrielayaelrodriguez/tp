@@ -1,0 +1,2 @@
+class TemporalTasksController < ApplicationController
+end

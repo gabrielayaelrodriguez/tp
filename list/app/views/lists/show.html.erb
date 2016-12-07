@@ -8,5 +8,44 @@
   <%= @list.url %>
 </p>
 
+
+<h2>Tasks</h2>
+<% @list.tasks.each do |task| %>
+
+	<p>
+    <strong>Type:</strong>
+    <%= task.type %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= task.description %>
+  </p>
+ 
+  <p>
+    <strong>State:</strong>
+    <%= task.state %>
+  </p>
+
+  <p>
+    <strong>Priority:</strong>
+    <%= task.priority %>
+  </p>
+
+<% end %>
+
+
+<h2>Add a task:</h2>
+
+<p>
+<%= link_to 'New Simple Task', new_list_simple_task_path(@list) %>
+</p>
+<p>
+<%= link_to 'New Temporal Task', new_list_temporal_task_path(@list) %>
+</p>
+<p>
+<%= link_to 'New Long Task', new_list_long_task_path(@list) %>
+</p>
+
+
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :lists
+  resources :lists do
+  	resources :simple_tasks, :temporal_tasks, :long_tasks
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

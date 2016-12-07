@@ -7,4 +7,8 @@ class List < ApplicationRecord
 		self.url=self.name.parameterize		
 	end
 
+	def to_param
+		url
+	end
+
 end

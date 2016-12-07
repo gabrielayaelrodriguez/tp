@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TemporalTest < ActiveSupport::TestCase
+class LongTasksControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

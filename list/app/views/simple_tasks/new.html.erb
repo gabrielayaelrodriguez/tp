@@ -1,0 +1,20 @@
+<h1>New Simple Task</h1>
+
+<h2>Create a new Simple Task</h2>
+<%= form_for @simpleTask, url: { :action => :create} do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+  	<%= f.label :state %><br>
+  	<%= f.select :state, ['Pendient', 'Done'] %>
+  </p>
+  <p>
+    <%= f.label :priority %><br>
+    <%= f.select :priority, ['High', 'Medium', 'Low'] %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
