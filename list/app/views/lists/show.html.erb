@@ -1,3 +1,5 @@
+<h1>List</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @list.name %>
@@ -10,28 +12,31 @@
 
 
 <h2>Tasks</h2>
+
+<table class="table">
+  <tr>
+    <th>Type</th>
+    <th>Description</th>
+    <th>State</th>
+    <th>Priority</th>
+  </tr>
+
+
 <% @list.tasks.each do |task| %>
 
-	<p>
-    <strong>Type:</strong>
-    <%= task.type %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
- 
-  <p>
-    <strong>State:</strong>
-    <%= task.state %>
-  </p>
-
-  <p>
-    <strong>Priority:</strong>
-    <%= task.priority %>
-  </p>
-
-<% end %>
+<tr>
+      <td><%= task.type %></td>
+      <td><%= task.description %></td>
+      <td><%= task.state %></td>
+      <td><%= task.priority %></td>
+      
+      <td><%= link_to 'Edit', [:edit, task.list, task] %></td>
+      <td><%= link_to 'Destroy', [task.list, task],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
 
 
 <h2>Add a task:</h2>

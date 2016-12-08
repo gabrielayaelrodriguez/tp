@@ -1,0 +1,19 @@
+<h1>Edit Simple Task</h1>
+
+<%= form_for @simpleTask, url: { :action => :update} do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+  	<%= f.label :state %><br>
+  	<%= f.select :state, ['Pendient', 'Done'] %>
+  </p>
+  <p>
+    <%= f.label :priority %><br>
+    <%= f.select :priority, ['High', 'Medium', 'Low'] %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
