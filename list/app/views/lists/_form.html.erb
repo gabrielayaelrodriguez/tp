@@ -1,3 +1,5 @@
+<div class="form-group">
+
 <%= form_for @list do |f| %>
 
   <% if @list.errors.any? %>
@@ -17,11 +19,15 @@
 
 
   <p>
-    <%= f.label :List_Name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "form-control" %>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-success" %>
   </p>
+
+  <br><br>
 <% end %>
+
+</div>

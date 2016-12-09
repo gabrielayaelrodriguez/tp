@@ -1,20 +1,42 @@
 <h1>New Simple Task</h1>
 
-<h2>Create a new Simple Task</h2>
-<%= form_for @simpleTask, url: { :action => :create} do |f| %>
+
+<div class="form-group">
+
+<%= simple_form_for @simpleTask, url: { :action => :create} do |f| %>
+
+
+  <% if @simpleTask.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@simpleTask.errors.count, "error") %> prohibited
+        this list from being saved:
+      </h2>
+      <ul>
+        <% @simpleTask.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
   <p>
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :class => "form-control" %>
   </p>
   <p>
   	<%= f.label :state %><br>
-  	<%= f.select :state, ['Pendient', 'Done'] %>
+  	<%= f.select :state, options_for_select(['Pendient', 'Done']), {}, class: "form-control" %>
   </p>
   <p>
     <%= f.label :priority %><br>
-    <%= f.select :priority, ['High', 'Medium', 'Low'] %>
+    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
   </p>
-  <p>
-    <%= f.submit %>
+  <p><br>
+    <%= f.submit  :class => "btn btn-success"%>
   </p>
 <% end %>
+
+</div>

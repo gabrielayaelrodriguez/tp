@@ -1,11 +1,11 @@
 <div class="jumbotron text-center">
   <h1>Welcome to ToDoList app!</h1>
-  <p>most cutie page to keep your mind on the flow</p> 
+  <p>Most cutie page to keep your mind sharp</p> 
 </div>
 
 <div class="col-sm-12 text-center">
   <h3>Wanna make some ToDoLists?</h3>
-  <p><%= link_to 'Make and View Lists!', new_list_path %></p>
+  <p><%= link_to 'Make New List!', new_list_path, :class => "btn btn-success" %></p>
 </div>
 
 
@@ -28,7 +28,14 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
-  <% end %>
+<% end %>
 </table>
 
-<% end %>
+  
+  <% else %>
+
+  <h4>No lists yet, get started by adding some New List</h4>
+
+  <% end %>
+
+

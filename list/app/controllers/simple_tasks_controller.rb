@@ -16,9 +16,12 @@ class SimpleTasksController < ApplicationController
 
 		@simpleTask.list_id=@list.id
 
-		@simpleTask.save
+		if @simpleTask.save
 
-		redirect_to list_path(@list)
+			redirect_to list_path(@list)
+		else
+			render 'new'
+		end
 	end
 
 	def update

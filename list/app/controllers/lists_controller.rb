@@ -30,8 +30,17 @@ class ListsController < ApplicationController
 	 
 	  if @list.save
 	  	if !(cookies[:lists].nil?)
-		  	stuff=cookies[:lists] + ',' + @list.url
-		  	cookies[:lists]= stuff
+	  		a=(cookies[:lists]).split(',')
+	  		if (a.size<5)
+		  		stuff=cookies[:lists] + ',' + @list.url
+		  		cookies[:lists]= stuff
+		  	else
+		  		a.shift
+		  		a.push @list.url
+		  		a=a.join(',')
+		  		cookies[:lists]=a
+		  		
+		  	end
 		else
 			cookies[:lists]=@list.url
 		end
