@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
 	before_action :common
 
-
 	def index
 
 		if !(cookies[:lists].nil?)
@@ -15,7 +14,6 @@ class ListsController < ApplicationController
 	  		
 	  	end
 	end
-
 
 	def show
 	end
@@ -54,6 +52,17 @@ class ListsController < ApplicationController
 	end
 
 	def destroy
+	  a=(cookies[:lists]).split(',')
+	  a.delete(@list.url)
+
+	  if (a.size>0)
+	  	a.join(',')
+	  	cookies[:lists]=a
+	  else
+	  	cookies.delete :lists
+	  end
+	  
+
 	  @list.destroy
 	 
 	  redirect_to lists_path
