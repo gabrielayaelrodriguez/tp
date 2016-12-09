@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  root 'welcome#index'
+  root 'lists#index'
 
   resources :lists do
   	resources :simple_tasks, :temporal_tasks, :long_tasks

@@ -1,5 +1,15 @@
-<h1>Listing lists</h1>
+<div class="jumbotron text-center">
+  <h1>Welcome to ToDoList app!</h1>
+  <p>most cutie page to keep your mind on the flow</p> 
+</div>
 
+<div class="col-sm-12 text-center">
+  <h3>Wanna make some ToDoLists?</h3>
+  <p><%= link_to 'Make and View Lists!', new_list_path %></p>
+</div>
+
+
+<h3>Last Lists Created by You</h3>
 <% if defined?(@lists)  %>
 
 <table class="table">
@@ -22,5 +32,3 @@
 </table>
 
 <% end %>
-
-<%= link_to 'New list', new_list_path %>
