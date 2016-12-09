@@ -1,0 +1,46 @@
+<div class="form-group">
+
+
+  <% if @temporalTask.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@temporalTask.errors.count, "error") %> prohibited
+        this task from being saved:
+      </h2>
+      <ul>
+        <% @temporalTask.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= form_for [@list, @temporalTask] do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, :class => "form-control" %>
+  </p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.select :state, options_for_select(['Pendient', 'Done']), {}, class: "form-control" %>
+  </p>
+  <p>
+    <%= f.label :priority %><br>
+    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
+  </p>
+  <p>
+    <%= f.label :validation_start %><br>
+    <%= f.text_field :validation_start, :class => "form-control" %>
+  </p>
+  <p>
+    <%= f.label :validation_end %><br>
+    <%= f.text_field :validation_end, :class => "form-control" %>
+  </p>
+  
+  <p><br>
+    <%= f.submit  :class => "btn btn-success"%>
+  </p>
+<% end %>
+
+</div>
