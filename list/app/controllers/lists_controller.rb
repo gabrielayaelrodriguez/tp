@@ -35,6 +35,7 @@ class ListsController < ApplicationController
 		  		stuff=cookies[:lists] + ',' + @list.url
 		  		cookies[:lists]= stuff
 		  	else
+
 		  		a.shift
 		  		a.push @list.url
 		  		a=a.join(',')
@@ -61,11 +62,12 @@ class ListsController < ApplicationController
 	end
 
 	def destroy
+		
 	  a=(cookies[:lists]).split(',')
 	  a.delete(@list.url)
 
 	  if (a.size>0)
-	  	a.join(',')
+	  	a=a.join(',')
 	  	cookies[:lists]=a
 	  else
 	  	cookies.delete :lists
