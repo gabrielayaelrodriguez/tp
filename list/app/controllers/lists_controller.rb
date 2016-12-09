@@ -1,20 +1,15 @@
 class ListsController < ApplicationController
 	before_action :common
-	before_action :ini_array
+
 
 	def index
-		cookie_list
 
-		cookies[:lists]= array.split(',')
-
-		if (cookies[:lists]!='')
+		if !(cookies[:lists].nil?)
 			@lists=Array.new()
 
 			(cookies[:lists]).split(',').each do |url|
 
 				@lists << List.find_by(url: "#{url}")
-
-				
 
 	    	end
 	  		
@@ -36,11 +31,12 @@ class ListsController < ApplicationController
 	  @list = List.new(list_params)
 	 
 	  if @list.save
-
-
-	  	array<<@list.name
-	  	array.join(',')
-
+	  	if !(cookies[:lists].nil?)
+		  	stuff=cookies[:lists] + ',' + @list.url
+		  	cookies[:lists]= stuff
+		else
+			cookies[:lists]=@list.url
+		end
 
 	  	redirect_to @list
 	  else
@@ -76,11 +72,5 @@ class ListsController < ApplicationController
 	    @list = List.find_by(url: "#{url}")
 	  end
 
-	  def cookie_list
-	  	cookies[:cookieList] ||= ''
-	  end
 
-	  def ini_array
-	  	array[] ||= ''
-	  end
 end
