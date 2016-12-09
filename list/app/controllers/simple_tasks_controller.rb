@@ -1,13 +1,12 @@
 class SimpleTasksController < ApplicationController
 	before_action :findparent
-	before_action :findtask, only: [:update]
+	before_action :findtask, only: [:update, :edit]
 	
 	def new
 		@simpleTask=SimpleTask.new
 	end
 
 	def edit
-		@simpleTask=@list.tasks.find(params[:id])
 	end
 
   	def create

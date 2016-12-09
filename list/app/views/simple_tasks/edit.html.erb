@@ -1,23 +1,5 @@
 <h1>Edit Simple Task</h1>
 
-<div class="form-group">
+<%= render 'form' %>
 
-<%= simple_form_for @simpleTask, url: { :action => :update} do |f| %>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description, :class => "form-control" %>
-  </p>
-  <p>
-    <%= f.label :state %><br>
-    <%= f.select :state, options_for_select(['Pendient', 'Done']), {}, class: "form-control" %>
-  </p>
-  <p>
-    <%= f.label :priority %><br>
-    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
-  </p>
-  <p><br>
-    <%= f.submit  :class => "btn btn-success"%>
-  </p>
-<% end %>
-
-</div>
+<%= link_to 'Back', list_path(@list), :class => "btn btn-info" %>

@@ -10,6 +10,17 @@
   <%= @list.url %>
 </p>
 
+<p>
+  <strong>Created:</strong>
+  <%= @list.created_at %>
+</p>
+
+<p>
+  <strong>Modified:</strong>
+  <%= @list.updated_at %>
+</p>
+
+
 <%= link_to 'Edit List Name', edit_list_path(@list), :class => "btn btn-info" %>
 
 <h2>Tasks</h2>
@@ -20,6 +31,8 @@
     <th>Description</th>
     <th>State</th>
     <th>Priority</th>
+    <th></th>
+    <th></th>
   </tr>
 
 
@@ -31,7 +44,7 @@
       <td><%= task.state %></td>
       <td><%= task.priority %></td>
       
-      <td><%= link_to 'Edit', [:edit, task.list, task] %></td>
+      <td><%= link_to 'Edit', edit_list_simple_task_path(list_id: @list.url, id: task.id) %></td>
       <td><%= link_to 'Destroy', [task.list, task],
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
