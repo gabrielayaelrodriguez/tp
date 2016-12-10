@@ -43,8 +43,9 @@
       <td><%= task.description %></td>
       <td><%= task.state %></td>
       <td><%= task.priority %></td>
-      
-      <td><%= link_to 'Edit', edit_list_simple_task_path(list_id: @list.url, id: task.id) %></td>
+
+
+      <td><%= link_to 'Edit', url_for([:edit, @list, task]) %></td>
       <td><%= link_to 'Destroy', [task.list, task],
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>

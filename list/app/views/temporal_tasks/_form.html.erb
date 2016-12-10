@@ -30,14 +30,24 @@
     <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
   </p>
   <p>
-    <%= f.label :validation_start %><br>
-    <%= f.text_field :validation_start, :class => "form-control" %>
+
+  <%= f.label :validation_start %><br>
+  <%= f.text_field :validation_start, 'data-behaviour' => 'datepicker' %>
   </p>
+
   <p>
-    <%= f.label :validation_end %><br>
-    <%= f.text_field :validation_end, :class => "form-control" %>
+  <%= f.label :validation_end %><br>
+  <%= f.text_field :validation_end, 'data-behaviour' => 'datepicker' %>
   </p>
-  
+
+
+  <script>
+  $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+      $(this).datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+  });
+
+  </script>
+
   <p><br>
     <%= f.submit  :class => "btn btn-success"%>
   </p>
