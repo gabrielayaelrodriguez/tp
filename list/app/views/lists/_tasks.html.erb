@@ -1,0 +1,31 @@
+  <div class="row">
+    <div class="col-sm-3"> 
+    <div class="panel panel-success">
+      <div class="panel-heading">New Simple Task</div>
+      <div class="panel-body">Simple Tasks are tasks with a Description, State and Priority to say how important it is
+        <br><br>
+        <%= link_to 'New Simple Task', new_list_simple_task_path(@list), :class => "btn btn-success" %>
+      </div>
+
+    </div>
+    </div>
+    <div class="col-sm-3">
+     <div class="panel panel-default">
+      <div class="panel-heading">New Temporal Task</div>
+      <div class="panel-body">Temporal Tasks are like Simple Tasks, but you can also define a Start and Expiration date
+        <br><br>
+        <%= link_to 'New Temporal Task', new_list_temporal_task_path(@list), :class => "btn btn-info" %>
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-3">
+     <div class="panel panel-info">
+      <div class="panel-heading">New Long Task</div>
+      <div class="panel-body">Long Tasks will take some time to complete, so you can define a percentage of completion
+        <br><br>
+        <%= link_to 'New Long Task', new_list_long_task_path(@list), :class => "btn btn-primary" %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

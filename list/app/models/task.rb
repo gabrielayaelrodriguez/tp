@@ -24,4 +24,8 @@ class Task < ApplicationRecord
   	aux<=>auxanother
 
 	end
+
+  def should_appear?
+    true
+  end
 end

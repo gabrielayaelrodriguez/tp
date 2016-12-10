@@ -38,4 +38,18 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to list_url(@list)
   end
 
+  #hasta acá era el esqueleto
+
+  test "should not create list without a name" do
+    assert_no_difference('List.count') do
+      post lists_url, params: { list: { name: "" } }
+    end
+
+  end
+
+  test "should respect slut" do
+    @list=List.new(name: "lista de prueba")
+    assert_not @list.save
+  end
+
 end
