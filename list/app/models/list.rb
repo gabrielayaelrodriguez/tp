@@ -4,7 +4,9 @@ class List < ApplicationRecord
 	validates :url, uniqueness: true
 
 	before_validation(on: :create) do
-		self.url=self.name.parameterize		
+		if !self.name.nil? 
+			self.url=self.name.parameterize
+		end		
 	end
 
 	def to_param

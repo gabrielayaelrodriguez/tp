@@ -23,11 +23,11 @@
   </p>
   <p>
     <%= f.label :state %><br>
-    <%= f.select :state, options_for_select(['Pendient', 'Done']), {}, class: "form-control" %>
+    <%= f.select :state, options_for_select(['Pendient', 'Done'], :selected => @simpleTask.state), {}, class: "form-control" %>
   </p>
   <p>
     <%= f.label :priority %><br>
-    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
+    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low'], :selected => @simpleTask.priority), {}, class: "form-control" %>
   </p>
   <p><br>
     <%= f.submit  :class => "btn btn-success"%>

@@ -23,11 +23,11 @@
   </p>
   <p>
     <%= f.label :state %><br>
-    <%= f.select :state, options_for_select(['Pendient', 'Done', 'In course']), {}, class: "form-control" %>
+    <%= f.select :state, options_for_select(['Pendient', 'Done', 'In course'], :selected => @longTask.state), {}, class: "form-control" %>
   </p>
   <p>
     <%= f.label :priority %><br>
-    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low']), {}, class: "form-control" %>
+    <%= f.select :priority, options_for_select(['High', 'Medium', 'Low'], :selected => @longTask.priority), {}, class: "form-control" %>
   </p>
   <p>
     <%= f.label :percentage %><br>

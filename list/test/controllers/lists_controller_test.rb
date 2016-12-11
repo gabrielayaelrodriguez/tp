@@ -1,3 +1,4 @@
+
 require 'test_helper'
 
 class ListsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +18,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create list" do
     assert_difference('List.count') do
-      post lists_url, params: { list: { name: "lista2" } }
+      post lists_url, params: { list: {name: "lista1"  } }
     end
 
     assert_redirected_to list_url(List.last)
@@ -34,22 +35,40 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update list" do
-    patch list_url(@list), params: { list: { name: "lista" } }
+    patch list_url(@list), params: { list: {name:"lista2"  } }
     assert_redirected_to list_url(@list)
+  end
+
+  test "should destroy list" do
+    assert_difference('List.count', -1) do
+      delete list_url(@list)
+    end
+
+    assert_redirected_to lists_url
   end
 
   #hasta acá era el esqueleto
 
-  test "should not create list without a name" do
-    assert_no_difference('List.count') do
-      post lists_url, params: { list: { name: "" } }
-    end
+  # test "should not create list without a name" do
+  #   assert_no_difference('List.count') do
+  #     post lists_url, params: { list: { name: "" } }
+  #   end
 
+  # end
+
+  test "should not create list without a name" do
+    list=List.new()
+    assert_not list.save
   end
 
   test "should respect slut" do
-    @list=List.new(name: "lista de prueba")
-    assert_not @list.save
+    list = List.new(name: "list name here")
+    assert list.save
+  end
+
+  test "should cause slut conflict" do
+    list = List.new(name: "mañana es viernes ! ")
+    assert list.save
   end
 
 end
