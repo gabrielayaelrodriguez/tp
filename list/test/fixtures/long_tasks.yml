@@ -4,7 +4,15 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-#one: {}
+# one:
+#   description: MyString
+#   state: MyString
+#   priority: MyString
+#   validation_start: 2016-12-06
+#   validation_end: 2016-12-06
+#   percentage: 1.5
+#   list: one
+
 # column: value
 #
 #two: {}
