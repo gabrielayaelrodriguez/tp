@@ -11,23 +11,16 @@ class TemporalTasksController < ApplicationController
 
   	def create
 
-		  	@temporalTask=TemporalTask.new(task_params)
+	  	@temporalTask=TemporalTask.new(task_params)
 
-			@temporalTask.list_id=@list.id
+		@temporalTask.list_id=@list.id
+		
+		if @temporalTask.save
 
-			if (@temporalTask.validation_start && @temporalTask.validation_end && @temporalTask.validation_start < @temporalTask.validation_end)
-
-				if @temporalTask.save
-
-					redirect_to list_path(@list)
-				else
-					render 'new'
-				end
-			else
-				@temporalTask.errors.add(:base, "Choose a valid range of dates")
-	  			render 'new'
-	  		end			
-
+			redirect_to list_path(@list)
+		else
+			render 'new'
+		end
 	end
 
 	def update

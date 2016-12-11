@@ -4,4 +4,20 @@ class LongTaskTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+  setup do
+    @list = List.create(name: 'list')
+  end
+  
+  
+  test "should not create a task without a description" do
+      task = LongTask.new()
+      assert_not task.save
+  end
+
+  test "should create a task succesfully" do
+      task = LongTask.new(description: 'a description', state: 'Done',percentage: 10, priority: 'Low', list: @list)
+      assert task.save
+  end
+
 end

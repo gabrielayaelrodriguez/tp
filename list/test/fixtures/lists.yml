@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: lista
-  url: lista
+#one:
+#  name: lista
+#  url: lista
 #
 #two:
 #  name: MyString
