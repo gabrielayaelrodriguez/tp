@@ -39,14 +39,13 @@ class ListsController < ApplicationController
 		  		a.shift
 		  		a.push @list.url
 		  		a=a.join(',')
-		  		cookies[:lists]=a
-		  		
+		  		cookies[:lists]=a	
 		  	end
 		else
 			cookies[:lists]=@list.url
 		end
-
 	  	redirect_to @list
+	  
 	  else
 	  	render 'new'
 	  end

@@ -9,7 +9,7 @@ class SimpleTaskTest < ActiveSupport::TestCase
   end
   
   
-  test "should not create a task without a description" do
+  test "should not create a task without data" do
       task = SimpleTask.new()
       assert_not task.save
   end

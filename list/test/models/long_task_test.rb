@@ -10,7 +10,7 @@ class LongTaskTest < ActiveSupport::TestCase
   end
   
   
-  test "should not create a task without a description" do
+  test "should not create a task without data" do
       task = LongTask.new()
       assert_not task.save
   end

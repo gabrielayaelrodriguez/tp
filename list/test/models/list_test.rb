@@ -1,22 +1,22 @@
 require 'test_helper'
 
 class ListTest < ActiveSupport::TestCase
-	
+
   # test "the truth" do
   #   assert true
   # end
 
-  test "sin nombre" do
+  test "should not create a list without a name" do
 	  list = List.new()
-	  assert_not list.save, "se guardo, error"
+	  assert_not list.save
   end
-  test "con nombre" do
-	  list = List.new(name: "hola mundo")
-	  assert list.save, "no se guardo"
+  test "should create a list that respects slugs" do
+	  list = List.new(name: "list name")
+	  assert list.save
   end
-  test "Con nombre que cause un conflicto de unicidad de los slugs." do
-    list = List.new(name: "hola    / uno /     rails")
-    assert list.save, "no se guardo"
+  test "should create slug even with a conflict name" do
+    list = List.new(name: "hello !! im a list!")
+    assert list.save
   end
 
 end
