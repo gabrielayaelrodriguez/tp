@@ -1,6 +1,6 @@
 class SimpleTasksController < ApplicationController
 	before_action :findparent
-	before_action :findtask, only: [:update, :edit]
+	before_action :findtask, only: [:update, :edit, :destroy]
 	
 	def new
 		@simpleTask=SimpleTask.new
@@ -33,8 +33,7 @@ class SimpleTasksController < ApplicationController
 	
 
 	def destroy
-	    @task = @list.tasks.find(params[:id])
-	    @task.destroy
+	    @simpleTask.destroy
 	    redirect_to list_path(@list)
 	end
 

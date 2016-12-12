@@ -1,6 +1,6 @@
 class TemporalTasksController < ApplicationController
 	before_action :findparent
-	before_action :findtask, only: [:update, :edit]
+	before_action :findtask, only: [:update, :edit, :destroy]
 	
 	def new
 		@temporalTask=TemporalTask.new
@@ -33,8 +33,7 @@ class TemporalTasksController < ApplicationController
 	
 
 	def destroy
-	    @task = @list.tasks.find(params[:id])
-	    @task.destroy
+	    @temporalTask.destroy
 	    redirect_to list_path(@list)
 	end
 
