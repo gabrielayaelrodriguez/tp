@@ -6,6 +6,9 @@ class List < ApplicationRecord
 	before_validation(on: :create) do
 		if !self.name.nil? 
 			self.url=self.name.parameterize
+		end
+		if !self.name.nil? && self.url==""
+			self.url=SecureRandom.hex[0,10].downcase
 		end		
 	end
 
