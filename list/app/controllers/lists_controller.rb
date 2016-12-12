@@ -16,6 +16,9 @@ class ListsController < ApplicationController
 	end
 
 	def show
+		if @list.nil?
+			render 'nolist'
+		end
 	end
 
 	def new

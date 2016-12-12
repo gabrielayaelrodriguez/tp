@@ -10,9 +10,19 @@
 
   <body>
   	<div id="main-container" class="container-fluid">
-		<div id="main-content" class="col-xs-12">
-    		<%= yield %>
-   		</div>
-	</div>
+  		<div id="main-content" class="col-xs-12">
+        <div class="container">
+      	 <%= yield %>
+        </div>
+     	</div>
+	   </div>
+
+    <div id="footer">
+      <div class="container text-center">
+        <p class="text-muted credit">Handmade with Love</p>
+      </div>
+    </div>
+
+
   </body>
 </html>
