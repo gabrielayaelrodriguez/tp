@@ -20,4 +20,9 @@ class LongTaskTest < ActiveSupport::TestCase
       assert task.save
   end
 
+  test "should not save percentage out of range" do
+    task= LongTask.create(description: 'a description', state: 'Done',percentage: 10, priority: 'Low', list: @list)
+    assert_not task.update(percentage: 900)
+  end
+
 end

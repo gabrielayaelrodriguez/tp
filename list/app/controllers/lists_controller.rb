@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-	before_action :common
+	before_action :findlist
 
 	def index
 
@@ -87,7 +87,7 @@ class ListsController < ApplicationController
 	    params.require(:list).permit(:name, :url)
 	  end
 
-	  def common
+	  def findlist
 	    url=params[:id]
 	    @list = List.find_by(url: "#{url}")
 	  end

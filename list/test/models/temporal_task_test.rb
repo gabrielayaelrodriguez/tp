@@ -26,7 +26,9 @@ class TemporalTaskTest < ActiveSupport::TestCase
   end
 
   test "should change to expired" do
-  	task = TemporalTask.new(description: 'a description', state: 'Done', validation_start: Date.new(2016, 12, 01), validation_end: Date.new(2016, 12, 22), priority: 'Low', list: @list)
+  	task = TemporalTask.new(description: 'a description', state: 'Pendient', validation_start: Date.new(2016, 11, 01), validation_end: Date.new(2016, 12, 01), priority: 'Low', list: @list)
+  	assert task.save
+  	assert_equal('Expired', task.state)
   end
 
 end
