@@ -33,7 +33,7 @@ class LongTasksController < ApplicationController
 	
 
 	def destroy
-	    @task.destroy
+	    @longTask.destroy
 	    redirect_to list_path(@list)
 	end
 
