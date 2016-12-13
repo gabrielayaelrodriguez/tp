@@ -30,6 +30,8 @@
 
 Se podrá ver la aplicación en http://localhost:3000/
 
+ó en https://rocky-stream-87322.herokuapp.com/
+
 # Corriendo los tests
 
 Se podrán correr los tests ejecutando en consola:
